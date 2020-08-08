@@ -8,10 +8,10 @@ import styles from './styles';
 function Favorites() {
   return (
     <View style={styles.container}>
-      <PageHeader title="Meus Proffys favoritos" />
+      <PageHeader title="Meus Proffys" />
 
       <ScrollView
-        style={styles.teacherList}
+        style={styles.favorite}
         contentContainerStyle={{
           paddingHorizontal: 16,
           paddingBottom: 16,
