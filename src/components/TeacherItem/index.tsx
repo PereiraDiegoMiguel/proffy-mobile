@@ -39,8 +39,9 @@ function TeacherItem() {
 
         <View style={styles.buttonsContainer}>
 
-          <RectButton style={styles.favoriteButton}>
-            <Image source={heartOutlineIcon} />
+          <RectButton style={[styles.favoriteButton, styles.favorite]}>
+            <Image source={unfavoriteIcon} />
+
           </RectButton>
 
           <RectButton style={styles.contactButton}>
