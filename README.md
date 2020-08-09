@@ -7,4 +7,6 @@
 - npm install @react-navigation/stack
 - npm install @react-navigation/bottom-tabs
 - npm install axios
+- expo install @react-native-community/async-storage
+
 
