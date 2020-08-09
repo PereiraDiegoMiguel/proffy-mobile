@@ -9,6 +9,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 
 
 import styles from './styles';
+import { useFocusEffect } from '@react-navigation/native';
 
 function TeacherList() {
 
@@ -47,6 +48,20 @@ function TeacherList() {
     setFiltersVisible(false);
     setTeachers(response.data);
   }
+
+  function loadFavorites() {
+    AsyncStorage.getItem('favorites').then(response => {
+      if (response) {
+        const favoritedTeachers = JSON.parse(response);
+
+        setFavorites(favoritedTeachers);
+      }
+    })
+  }
+
+  useFocusEffect(() => {
+    loadFavorites();
+  })
 
   return (
     <View style={styles.container}>
