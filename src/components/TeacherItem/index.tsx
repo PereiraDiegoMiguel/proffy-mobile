@@ -17,8 +17,12 @@ export interface Teacher {
   whatsapp: string;
 }
 
+interface TeacherItemProps {
+  teacher: Teacher;
+}
 
-function TeacherItem() {
+
+const TeacherItem: React.FC<TeacherItemProps> = ({ teacher }) => {
   return (
     <View style={styles.container}>
 
@@ -26,26 +30,24 @@ function TeacherItem() {
 
         <Image
           style={styles.avatar}
-          source={{ uri: 'https://avatars2.githubusercontent.com/u/63316292?s=460&u=b10e1c99b3fb8ab3cccfbf9c450dfd93ee928cde&v=4' }}
+          source={{ uri: teacher.avatar }}
         />
 
         <View style={styles.profileInfo} >
-          <Text style={styles.name}>Diego Pereira</Text>
-          <Text style={styles.subject}>Quimica</Text>
+          <Text style={styles.name}>{teacher.name}</Text>
+          <Text style={styles.subject}>{teacher.subject}</Text>
         </View>
 
       </View>
 
       <Text style={styles.bio}>
-        Entusiasta das melhores tecnologias de química avançada.
-          {'\n'}{'\n'}
-          Apaixonado por explodir coisas em laboratório e por mudar a vida das pessoas através de experiências. Mais de 200.000 pessoas já passaram por uma das minhas explosões.
-        </Text>
+        {teacher.bio}
+      </Text>
 
       <View style={styles.footer}>
         <Text style={styles.price}>
           Preço/hora {'  '}
-          <Text style={styles.priceValue}>R$ 20,00</Text>
+          <Text style={styles.priceValue}>{teacher.cost}</Text>
         </Text>
 
         <View style={styles.buttonsContainer}>

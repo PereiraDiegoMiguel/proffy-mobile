@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text } from 'react-native';
 import PageHeader from '../../components/PageHeader';
-import TeacherItem from '../../components/TeacherItem';
+import TeacherItem, { Teacher } from '../../components/TeacherItem';
 import { ScrollView, TextInput, BorderlessButton, RectButton } from 'react-native-gesture-handler';
 import { Feather } from '@expo/vector-icons';
 import api from '../../services/api';
@@ -9,6 +9,7 @@ import api from '../../services/api';
 import styles from './styles';
 
 function TeacherList() {
+
   const [teachers, setTeachers] = useState([]);
   const [filtersVisible, setFiltersVisible] = useState(false);
   const [subject, setSubject] = useState('');
@@ -28,7 +29,7 @@ function TeacherList() {
 
       }
     });
-
+    setFiltersVisible(false);
     setTeachers(response.data);
   }
 
@@ -96,9 +97,9 @@ function TeacherList() {
           paddingBottom: 16,
         }}
       >
-        {teachers.map(teacher => {
+        {teachers.map((teacher: Teacher) => {
           return (
-            <TeacherItem />
+            <TeacherItem key={teacher.id} teacher={teacher} />
           );
         })}
 
